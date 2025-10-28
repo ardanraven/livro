@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Evangelho da Cinza - Um Romance de Fantasia Sombria</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        blockquote {
+            font-family: 'EB Garamond', serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        /* Cor de destaque inspirada em brasas/cinzas */
+        .accent-color {
+            color: #d97706; /* amber-600 */
+        }
+        .bg-accent {
+            background-color: #d97706; /* amber-600 */
+        }
+        .hover-bg-accent:hover {
+            background-color: #b45309; /* amber-700 */
+        }
+        .border-accent {
+            border-color: #d97706; /* amber-600 */
+        }
+
+        /* Efeito Parallax Simples para o Hero */
+        .hero-bg {
+            background-image: linear-gradient(to top, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1494707231936-3f13f0a51c6a?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Animações de Fade-in ao Rolar */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-neutral-300 antialiased">
+
+    <!-- ===== Header/Nav Simples ===== -->
+    <header class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-gray-800">
+        <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-white tracking-wider">O Evangelho da <span class="accent-color">Cinza</span></a>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#sinopse" class="text-neutral-300 hover:accent-color transition-colors duration-300">Sinopse</a>
+                <a href="#trechos" class="text-neutral-300 hover:accent-color transition-colors duration-300">Citações</a>
+                <a href="#personagens" class="text-neutral-300 hover:accent-color transition-colors duration-300">Personagens</a>
+                <a href="#autor" class="text-neutral-300 hover:accent-color transition-colors duration-300">Autor</a>
+            </div>
+
+            <a href="#comprar"
+                class="bg-accent text-white font-bold py-2 px-5 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
+                Comprar Agora
+            </a>
+        </nav>
+    </header>
+
+    <!-- ===== Seção Hero ===== -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center pt-32 pb-16">
+        <div class="container mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Coluna da Capa do Livro -->
+            <div class="flex justify-center fade-in">
+                <!-- Use a URL da sua capa oficial aqui -->
+                <img src="https://i.ibb.co/fVf3RdsK/Chat-GPT-Image-27-de-out-de-2025-20-43-00.png"
+                    alt="Capa do livro O Evangelho da Cinza"
+                    class="rounded-lg shadow-2xl max-w-xs md:max-w-sm border-4 border-gray-700/60">
+            </div>
+
+            <!-- Coluna de Chamada (Hook) -->
+            <div class="text-center md:text-left fade-in" style="transition-delay: 200ms;">
+                <span class="text-xl accent-color font-serif italic">1349. A Peste Negra. O silêncio de Deus.</span>
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white my-4 leading-tight">A fé virou cinzas.</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-8">A vingança é a única <span class="accent-color">oração</span>.</h3>
+                <p class="text-lg text-neutral-300 mb-10 max-w-lg mx-auto md:mx-0">
+                    Mergulhe em um épico de fantasia sombria onde a sobrevivência exige um pacto com o vazio, e a única justiça é forjada no fogo.
+                </p>
+                <a href="#comprar"
+                    class="bg-accent text-white text-xl font-bold py-4 px-10 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
+                    GARANTA O SEU EXEMPLAR
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Seção de Sinopse (O Gancho) ===== -->
+    <section id="sinopse" class="py-24 bg-gray-950">
+        <div class="container mx-auto max-w-4xl px-6 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Onde Deus se calou, o <span class="accent-color">Corvo</span> responde.</h2>
+                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+                    O ano é 1349. A Peste Negra devora a Europa, e a fé não oferece salvação, apenas piras para os inocentes. Das cinzas de uma aldeia queimada, uma única sobrevivente, <strong class="text-white">Elara</strong>, ergue-se.
+                </p>
+                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto mt-4">
+                    Marcada pelo fogo e unida a uma fome antiga e sombria, ela jura desmantelar a Igreja que a destruiu, um milagre profano de cada vez. Mas a Igreja não assiste em silêncio. O Inquisidor <strong class="text-white">Valerius</strong>, uma lâmina de zelo divino, começa a sua caçada.
+                </p>
+                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto mt-4 font-semibold text-white">
+                    <span class="italic">O Evangelho da Cinza</span> é um épico de fantasia sombria sobre uma guerra entre dois deuses nascentes: um de caos e vingança, e outro de ordem absoluta e impiedosa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEÇÃO DE CITAÇÕES ===== -->
+    <section id="trechos" class="py-24 bg-black">
+        <div class="container mx-auto max-w-4xl px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white">Palavras Forjadas na <span class="accent-color">Cinza</span></h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Citação 1 -->
+                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in">
+                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
+                        "A pena era uma moeda inútil, gasta pelos fracos para comprar um lugar num paraíso imaginário."
+                    </p>
+                </blockquote>
+
+                <!-- Citação 2 -->
+                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 200ms;">
+                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
+                        "Não havia pastor, apenas o matadouro."
+                    </p>
+                </blockquote>
+
+                <!-- Citação 3 - Elara -->
+                 <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 400ms;">
+                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
+                        "Eu sou a oração que vocês nunca deveriam ter feito. A consequência."
+                    </p>
+                </blockquote>
+
+                <!-- Citação 4 - Valerius (Alinhada à direita) -->
+                <blockquote class="border-r-4 border-gray-700 pr-6 md:pr-8 text-right fade-in" style="transition-delay: 600ms;">
+                    <p class="text-2xl md:text-3xl font-serif italic text-neutral-300 leading-snug">
+                        "Ela não está apenas em guerra conosco, Irmão. Ela declarou guerra ao próprio Céu."
+                    </p>
+                    <span class="block text-lg text-neutral-400 mt-2">- Inquisidor Valerius</span>
+                </blockquote>
+
+                <!-- Citação 5 - Poética -->
+                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 800ms;">
+                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
+                        "...deixando para trás um amém de vidro quebrado e a primeira cicatriz gravada no rosto de Deus."
+                    </p>
+                </blockquote>
+
+                <!-- Citação 6 - A GRANDE FINAL -->
+                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 pt-4 mt-16 fade-in" style="transition-delay: 1000ms;">
+                    <p class="text-3xl md:text-4xl font-serif italic text-white leading-tight">
+                        "A vingança, quando exercida pelo oprimido contra o opressor, não é um pecado. É o mais sagrado de todos os sacramentos."
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    <!-- ===== FIM DA SEÇÃO ATUALIZADA ===== -->
+
+
+    <!-- ===== Seção de Personagens (COM ÍCONES NOVOS) ===== -->
+    <section id="personagens" class="py-24 bg-gray-950">
+        <div class="container mx-auto max-w-6xl px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white">Dois Lados da Mesma <span class="accent-color">Moeda</span></h2>
+                <p class="text-lg text-neutral-400 mt-4">Ela é a heresia. Ele é a ordem. A caçada começou.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+                
+                <!-- Personagem: Elara (Ícone de Lua NOVO) -->
+                <div class="flex flex-col items-center text-center fade-in">
+                    <!-- Link direto para um ícone de LUA do Flaticon -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/867/867802.png" alt="Elara (Ícone de Lua)" class="w-64 h-64 rounded-full border-4 border-gray-800 object-contain shadow-lg mb-6 p-10 bg-gray-900 invert-[.15]">
+                    <h3 class="text-3xl font-bold text-white">ELARA</h3>
+                    <h4 class="text-xl accent-color font-serif italic mb-3">A Profetisa das Cinzas</h4>
+                    <p class="text-neutral-300 max-w-md">
+                        A única sobrevivente de uma pira injusta. Consumida por uma vingança fria e um poder mais antigo que o mundo, ela não busca salvar almas, mas sim provar que elas nunca existiram.
+                    </p>
+                </div>
+
+                <!-- Personagem: Valerius (Ícone de Sol NOVO) -->
+                <div class="flex flex-col items-center text-center fade-in" style="transition-delay: 200ms;">
+                    <!-- Link direto para um ícone de SOL do Flaticon -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/1811/1811005.png" alt="Valerius (Ícone de Sol)" class="w-64 h-64 rounded-full border-4 border-gray-800 object-contain shadow-lg mb-6 p-10 bg-gray-900 invert">
+                    <h3 class="text-3xl font-bold text-white">VALERIUS</h3>
+                    <h4 class="text-xl accent-color font-serif italic mb-3">O Inquisidor de Gelo</h4>
+                    <p class="text-neutral-300 max-w-md">
+                        Para Valerius, a Peste é apenas um sintoma. A heresia é a verdadeira doença. Ele é a lógica de Deus, impiedoso e absoluto, e caçará a bruxa Elara até os confins da terra.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- ===== Seção de Depoimentos (Prova Social) ===== -->
+    <section id="depoimentos" class="py-24 bg-black">
+        <div class="container mx-auto max-w-6xl px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white">O que os Leitores Estão <span class="accent-color">Sussurrando</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in">
+                    <p class="text-lg text-neutral-300 italic">"Arrepiante. A melhor fantasia sombria que li este ano. Elara é a anti-heroína que não sabíamos que precisávamos. Brutal e inesquecível."</p>
+                    <span class="block text-right text-white font-bold mt-4">- A Gazeta Literária</span>
+                </div>
+                <!-- Depoimento 2 -->
+                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in" style="transition-delay: 200ms;">
+                    <p class="text-lg text-neutral-300 italic">"Uma descida visceral à Idade das Trevas. O autor não poupa o leitor, e o livro é melhor por isso. Você não vai conseguir parar de ler."</p>
+                    <span class="block text-right text-white font-bold mt-4">- Blog 'A Última Página'</span>
+                </div>
+                <!-- Depoimento 3 -->
+                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in" style="transition-delay: 400ms;">
+                    <p class="text-lg text-neutral-300 italic">"Complexo, sombrio e viciante. A guerra teológica entre Elara e Valerius é de tirar o fôlego. Mal posso esperar pela continuação."</p>
+                    <span class="block text-right text-white font-bold mt-4">- Maria S., Leitora</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Seção Sobre o Autor (COM FOTO) ===== -->
+    <section id="autor" class="py-24 bg-gray-950">
+        <div class="container mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-shrink-0 fade-in">
+                <!-- Sua foto! -->
+                <img src="https://i.ibb.co/0ymRCF5C/2-DACB7-CC-CE28-4383-BD50-DEB2-C7-A38721.png" alt="Foto da Autora"
+                    class="w-60 h-60 rounded-full object-cover border-4 border-gray-800 shadow-xl">
+            </div>
+            <div class="fade-in" style="transition-delay: 200ms;">
+                <h2 class="text-4xl font-bold text-white mb-4">Sobre <span class="accent-color">Leonardo Machado</span></h2>
+                <p class="text-lg text-neutral-300 leading-relaxed mb-4">
+                    Leonardo é uma nova e ousada voz na fantasia sombria nacional. Fascinado(a) pelas eras mais brutais da história e pelas perguntas que a fé não consegue responder, Leonardo escreve as histórias encontradas nas sombras.
+                </p>
+                <p class="text-lg text-neutral-300 leading-relaxed">
+                    O Evangelho da Cinza é o seu muito aguardado romance de estreia.
+                </p>
+                <!-- Links de Redes Sociais (opcional) -->
+                <div class="mt-6 flex space-x-4">
+                    <a href="https://www.instagram.com/leo_machado_27/" class="text-neutral-400 hover:accent-color transition-colors duration-300">Instagram</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Seção Final de CTA (Call to Action) ===== -->
+    <section id="comprar" class="py-32 bg-black hero-bg" style="background-position: bottom center;">
+        <div class="container mx-auto max-w-3xl px-6 text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">A escuridão espera por você.</h2>
+                <p class="text-xl text-neutral-300 mb-10">
+                    Não perca este épico de fantasia sombria que está redefinindo o gênero. Garanta seu exemplar e escolha o seu lado na guerra entre a ordem e as cinzas.
+                </p>
+                <a href="#comprar-link-real"
+                    class="bg-accent text-white text-2xl font-bold py-5 px-14 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
+                    COMPRAR AGORA
+                </a>
+                <p class="text-neutral-400 text-sm mt-4">(Disponível em formato Físico e E-book)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="py-12 bg-black border-t border-gray-900">
+        <div class="container mx-auto max-w-6xl px-6 text-center text-neutral-500">
+            <p>&copy; 2025 Leonardo Machado. Todos os direitos reservados.</p>
+            <p class="text-sm mt-2">Uma landing page feita com <span class="accent-color">&lt;3</span> por Elara.</p>
+        </div>
+    </footer>
+
+    <!-- Botão de Voltar ao Topo -->
+    <button id="to-top-button"
+        class="fixed bottom-6 right-6 bg-accent text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover-bg-accent"
+        title="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <!-- Script para Animações e Botão "Topo" -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            
+            // Lógica da Animação de Fade-in
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Opcional: parar de observar depois que for visível
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Ativa quando 10% do elemento está visível
+            });
+
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Lógica do Botão "Voltar ao Topo"
+            const toTopButton = document.getElementById('to-top-button');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    toTopButton.classList.remove('opacity-0');
+                } else {
+                    toTopButton.classList.add('opacity-0');
+                }
+            });
+
+            toTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
+
