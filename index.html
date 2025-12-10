@@ -1,365 +1,684 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
-
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Evangelho da Cinza - Um Romance de Fantasia Sombria</title>
-    <!-- Tailwind CSS CDN -->
+    <title>O Abraço da Noite Primordial | Leonardo Machado</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        /* Estilos personalizados */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
         }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        blockquote {
-            font-family: 'EB Garamond', serif;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-        }
-
-        /* Cor de destaque inspirada em brasas/cinzas */
-        .accent-color {
-            color: #d97706; /* amber-600 */
-        }
-        .bg-accent {
-            background-color: #d97706; /* amber-600 */
-        }
-        .hover-bg-accent:hover {
-            background-color: #b45309; /* amber-700 */
-        }
-        .border-accent {
-            border-color: #d97706; /* amber-600 */
-        }
-
-        /* Efeito Parallax Simples para o Hero */
-        .hero-bg {
-            background-image: linear-gradient(to top, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1494707231936-3f13f0a51c6a?auto=format&fit=crop&w=1920&q=80');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Animações de Fade-in ao Rolar */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        #stars-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
     </style>
 </head>
+<body class="bg-slate-950 text-slate-200 font-sans overflow-x-hidden selection:bg-indigo-500 selection:text-white">
 
-<body class="bg-black text-neutral-300 antialiased">
-
-    <!-- ===== Header/Nav Simples ===== -->
-    <header class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-gray-800">
-        <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold text-white tracking-wider">O Evangelho da <span class="accent-color">Cinza</span></a>
-            
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#sinopse" class="text-neutral-300 hover:accent-color transition-colors duration-300">Sinopse</a>
-                <a href="#trechos" class="text-neutral-300 hover:accent-color transition-colors duration-300">Citações</a>
-                <a href="#personagens" class="text-neutral-300 hover:accent-color transition-colors duration-300">Personagens</a>
-                <a href="#autor" class="text-neutral-300 hover:accent-color transition-colors duration-300">Autor</a>
+    <nav class="fixed w-full z-50 glass-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="moon" class="text-indigo-400 fill-indigo-400"></i>
+                    <span class="font-serif text-xl font-bold text-slate-100 tracking-widest">NYX</span>
+                </div>
+                <div class="hidden md:flex gap-6 text-xs uppercase tracking-widest text-slate-400 font-medium">
+                    <a href="#sinopse" class="hover:text-white transition">O Livro</a>
+                    <a href="#passagens" class="hover:text-white transition">Passagens</a>
+                    <a href="#criticas" class="hover:text-white transition">Depoimentos</a>
+                    <a href="#comprar" class="text-indigo-400 hover:text-white transition font-bold">Comprar Agora</a>
+                </div>
+                <div class="md:hidden text-slate-300">
+                    <i data-lucide="menu"></i>
+                </div>
             </div>
+        </div>
+    </nav>
 
-            <a href="#comprar"
-                class="bg-accent text-white font-bold py-2 px-5 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
-                Comprar Agora
-            </a>
-        </nav>
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div id="stars-container"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950"></div>
+        
+        <div class="container mx-auto px-4 z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-fade-in text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-900/10 text-indigo-300 text-[10px] font-bold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                    Nova Edição Disponível
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight font-bold drop-shadow-2xl">
+                    O Abraço da <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-400 italic">Noite Primordial</span>
+                </h1>
+                
+                <p class="text-lg text-slate-300 font-light border-l-4 border-indigo-600 pl-6 italic max-w-lg mx-auto md:mx-0">
+                    "Durante o dia, você é uma função social. A noite devolve a sua alma. Um manifesto contra a tirania da luz."
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                    <a href="#comprar" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-lg shadow-indigo-600/30 font-bold transition flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        <i data-lucide="book-open" class="w-4 h-4"></i> Ler Agora
+                    </a>
+                    <a href="#criticas" class="px-8 py-4 bg-transparent border border-slate-600 hover:border-indigo-400 text-slate-300 rounded-lg transition flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i> Ver as 40 Opiniões
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative flex justify-center perspective-1000">
+                 <div class="relative w-64 md:w-80 aspect-[2/3] bg-slate-800 rounded shadow-2xl transform hover:rotate-y-6 transition duration-700 cursor-pointer group border border-slate-700/50">
+                    <img src="https://i.ibb.co/v4xK5Sbn/result-0.png" alt="Capa O Abraço da Noite Primordial" class="w-full h-full object-cover rounded shadow-[0_0_60px_rgba(79,70,229,0.15)] group-hover:shadow-[0_0_80px_rgba(79,70,229,0.3)] transition">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-20 transition duration-500 pointer-events-none rounded"></div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- ===== Seção Hero ===== -->
-    <section id="hero" class="hero-bg min-h-screen flex items-center pt-32 pb-16">
-        <div class="container mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Coluna da Capa do Livro -->
-            <div class="flex justify-center fade-in">
-                <!-- Use a URL da sua capa oficial aqui -->
-                <img src="https://i.ibb.co/fVf3RdsK/Chat-GPT-Image-27-de-out-de-2025-20-43-00.png"
-                    alt="Capa do livro O Evangelho da Cinza"
-                    class="rounded-lg shadow-2xl max-w-xs md:max-w-sm border-4 border-gray-700/60">
-            </div>
-
-            <!-- Coluna de Chamada (Hook) -->
-            <div class="text-center md:text-left fade-in" style="transition-delay: 200ms;">
-                <span class="text-xl accent-color font-serif italic">1349. A Peste Negra. O silêncio de Deus.</span>
-                <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white my-4 leading-tight">A fé virou cinzas.</h2>
-                <h3 class="text-4xl md:text-5xl font-bold text-white mb-8">A vingança é a única <span class="accent-color">oração</span>.</h3>
-                <p class="text-lg text-neutral-300 mb-10 max-w-lg mx-auto md:mx-0">
-                    Mergulhe em um épico de fantasia sombria onde a sobrevivência exige um pacto com o vazio, e a única justiça é forjada no fogo.
+    <section id="sinopse" class="py-24 bg-slate-900 border-y border-slate-800">
+        <div class="container mx-auto px-4 max-w-4xl text-center space-y-10">
+            <h2 class="text-3xl md:text-4xl font-serif text-white font-bold">Você está cansado de <span class="text-indigo-400">brilhar?</span></h2>
+            
+            <div class="prose prose-invert prose-lg mx-auto text-slate-300 leading-relaxed text-justify md:text-center">
+                <p>
+                    Vivemos sob o império de um sol tirano. Desde o berço, somos instruídos a performar, a estar sempre visíveis, a sermos "claros" e "produtivos".
                 </p>
-                <a href="#comprar"
-                    class="bg-accent text-white text-xl font-bold py-4 px-10 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
-                    GARANTA O SEU EXEMPLAR
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== Seção de Sinopse (O Gancho) ===== -->
-    <section id="sinopse" class="py-24 bg-gray-950">
-        <div class="container mx-auto max-w-4xl px-6 text-center">
-            <div class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Onde Deus se calou, o <span class="accent-color">Corvo</span> responde.</h2>
-                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto">
-                    O ano é 1349. A Peste Negra devora a Europa, e a fé não oferece salvação, apenas piras para os inocentes. Das cinzas de uma aldeia queimada, uma única sobrevivente, <strong class="text-white">Elara</strong>, ergue-se.
+                <p class="font-medium text-white text-xl border-y border-indigo-900/50 py-6 my-6">
+                    "Você está exausto de sustentar a coerência da sua própria imagem."
                 </p>
-                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto mt-4">
-                    Marcada pelo fogo e unida a uma fome antiga e sombria, ela jura desmantelar a Igreja que a destruiu, um milagre profano de cada vez. Mas a Igreja não assiste em silêncio. O Inquisidor <strong class="text-white">Valerius</strong>, uma lâmina de zelo divino, começa a sua caçada.
-                </p>
-                <p class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto mt-4 font-semibold text-white">
-                    <span class="italic">O Evangelho da Cinza</span> é um épico de fantasia sombria sobre uma guerra entre dois deuses nascentes: um de caos e vingança, e outro de ordem absoluta e impiedosa.
+                <p>
+                    Este livro é um ato de desistência estratégica. É um convite para fechar os olhos e perceber que o escuro não é o fim, mas o útero. Mergulhe na genealogia de Nyx, Hypnos e Thanatos e descubra o conforto que só o abismo pode oferecer.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- ===== SEÇÃO DE CITAÇÕES ===== -->
-    <section id="trechos" class="py-24 bg-black">
-        <div class="container mx-auto max-w-4xl px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-white">Palavras Forjadas na <span class="accent-color">Cinza</span></h2>
+    <section id="passagens" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-white">Trechos Escolhidos</h2>
+                <div class="h-1 w-16 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
             </div>
-
-            <div class="space-y-12">
-                <!-- Citação 1 -->
-                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in">
-                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
-                        "A pena era uma moeda inútil, gasta pelos fracos para comprar um lugar num paraíso imaginário."
-                    </p>
-                </blockquote>
-
-                <!-- Citação 2 -->
-                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 200ms;">
-                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
-                        "Não havia pastor, apenas o matadouro."
-                    </p>
-                </blockquote>
-
-                <!-- Citação 3 - Elara -->
-                 <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 400ms;">
-                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
-                        "Eu sou a oração que vocês nunca deveriam ter feito. A consequência."
-                    </p>
-                </blockquote>
-
-                <!-- Citação 4 - Valerius (Alinhada à direita) -->
-                <blockquote class="border-r-4 border-gray-700 pr-6 md:pr-8 text-right fade-in" style="transition-delay: 600ms;">
-                    <p class="text-2xl md:text-3xl font-serif italic text-neutral-300 leading-snug">
-                        "Ela não está apenas em guerra conosco, Irmão. Ela declarou guerra ao próprio Céu."
-                    </p>
-                    <span class="block text-lg text-neutral-400 mt-2">- Inquisidor Valerius</span>
-                </blockquote>
-
-                <!-- Citação 5 - Poética -->
-                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 fade-in" style="transition-delay: 800ms;">
-                    <p class="text-2xl md:text-3xl font-serif italic text-white leading-snug">
-                        "...deixando para trás um amém de vidro quebrado e a primeira cicatriz gravada no rosto de Deus."
-                    </p>
-                </blockquote>
-
-                <!-- Citação 6 - A GRANDE FINAL -->
-                <blockquote class="border-l-4 border-accent pl-6 md:pl-8 pt-4 mt-16 fade-in" style="transition-delay: 1000ms;">
-                    <p class="text-3xl md:text-4xl font-serif italic text-white leading-tight">
-                        "A vingança, quando exercida pelo oprimido contra o opressor, não é um pecado. É o mais sagrado de todos os sacramentos."
-                    </p>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-    <!-- ===== FIM DA SEÇÃO ATUALIZADA ===== -->
-
-
-    <!-- ===== Seção de Personagens (COM ÍCONES NOVOS) ===== -->
-    <section id="personagens" class="py-24 bg-gray-950">
-        <div class="container mx-auto max-w-6xl px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-white">Dois Lados da Mesma <span class="accent-color">Moeda</span></h2>
-                <p class="text-lg text-neutral-400 mt-4">Ela é a heresia. Ele é a ordem. A caçada começou.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
-                
-                <!-- Personagem: Elara (Ícone de Lua NOVO) -->
-                <div class="flex flex-col items-center text-center fade-in">
-                    <!-- Link direto para um ícone de LUA do Flaticon -->
-                    <img src="https://cdn-icons-png.flaticon.com/512/867/867802.png" alt="Elara (Ícone de Lua)" class="w-64 h-64 rounded-full border-4 border-gray-800 object-contain shadow-lg mb-6 p-10 bg-gray-900 invert-[.15]">
-                    <h3 class="text-3xl font-bold text-white">ELARA</h3>
-                    <h4 class="text-xl accent-color font-serif italic mb-3">A Profetisa das Cinzas</h4>
-                    <p class="text-neutral-300 max-w-md">
-                        A única sobrevivente de uma pira injusta. Consumida por uma vingança fria e um poder mais antigo que o mundo, ela não busca salvar almas, mas sim provar que elas nunca existiram.
-                    </p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition shadow-lg">
+                    <i data-lucide="quote" class="text-indigo-500 mb-4 opacity-50"></i>
+                    <p class="font-serif italic text-slate-300 mb-4">"A luz cria a separação. Ela nos força a ver as diferenças, as falhas. Sob o império do sol, estamos sempre expostos."</p>
+                    <p class="text-xs text-indigo-400 font-bold uppercase tracking-widest text-right">— Prefácio</p>
                 </div>
-
-                <!-- Personagem: Valerius (Ícone de Sol NOVO) -->
-                <div class="flex flex-col items-center text-center fade-in" style="transition-delay: 200ms;">
-                    <!-- Link direto para um ícone de SOL do Flaticon -->
-                    <img src="https://cdn-icons-png.flaticon.com/512/1811/1811005.png" alt="Valerius (Ícone de Sol)" class="w-64 h-64 rounded-full border-4 border-gray-800 object-contain shadow-lg mb-6 p-10 bg-gray-900 invert">
-                    <h3 class="text-3xl font-bold text-white">VALERIUS</h3>
-                    <h4 class="text-xl accent-color font-serif italic mb-3">O Inquisidor de Gelo</h4>
-                    <p class="text-neutral-300 max-w-md">
-                        Para Valerius, a Peste é apenas um sintoma. A heresia é a verdadeira doença. Ele é a lógica de Deus, impiedoso e absoluto, e caçará a bruxa Elara até os confins da terra.
-                    </p>
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition shadow-lg">
+                    <i data-lucide="quote" class="text-indigo-500 mb-4 opacity-50"></i>
+                    <p class="font-serif italic text-slate-300 mb-4">"A esperança é uma ansiedade pelo futuro. A Noite não promete amanhã. A Noite oferece a eternidade do Agora."</p>
+                    <p class="text-xs text-indigo-400 font-bold uppercase tracking-widest text-right">— Cap. 1</p>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 hover:border-indigo-500/30 transition shadow-lg">
+                    <i data-lucide="quote" class="text-indigo-500 mb-4 opacity-50"></i>
+                    <p class="font-serif italic text-slate-300 mb-4">"O ego grita: 'Olhem para mim!'. Mas a Noite Primordial responde apenas com o farfalhar do vento. Ela não se importa."</p>
+                    <p class="text-xs text-indigo-400 font-bold uppercase tracking-widest text-right">— Cap. 3</p>
                 </div>
             </div>
         </div>
     </section>
 
-     <!-- ===== Seção de Depoimentos (Prova Social) ===== -->
-    <section id="depoimentos" class="py-24 bg-black">
-        <div class="container mx-auto max-w-6xl px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-white">O que os Leitores Estão <span class="accent-color">Sussurrando</span></h2>
+    <section id="criticas" class="py-24 bg-black border-t border-indigo-900/20">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-serif text-white font-bold">O Que As Pessoas Estão Dizendo</h2>
+                <p class="text-slate-400 mt-3 text-lg">40 relatos reais de leitores que encontraram abrigo na escuridão.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Depoimento 1 -->
-                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in">
-                    <p class="text-lg text-neutral-300 italic">"Arrepiante. A melhor fantasia sombria que li este ano. Elara é a anti-heroína que não sabíamos que precisávamos. Brutal e inesquecível."</p>
-                    <span class="block text-right text-white font-bold mt-4">- A Gazeta Literária</span>
-                </div>
-                <!-- Depoimento 2 -->
-                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in" style="transition-delay: 200ms;">
-                    <p class="text-lg text-neutral-300 italic">"Uma descida visceral à Idade das Trevas. O autor não poupa o leitor, e o livro é melhor por isso. Você não vai conseguir parar de ler."</p>
-                    <span class="block text-right text-white font-bold mt-4">- Blog 'A Última Página'</span>
-                </div>
-                <!-- Depoimento 3 -->
-                <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-accent shadow-lg fade-in" style="transition-delay: 400ms;">
-                    <p class="text-lg text-neutral-300 italic">"Complexo, sombrio e viciante. A guerra teológica entre Elara e Valerius é de tirar o fôlego. Mal posso esperar pela continuação."</p>
-                    <span class="block text-right text-white font-bold mt-4">- Maria S., Leitora</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ===== Seção Sobre o Autor (COM FOTO) ===== -->
-    <section id="autor" class="py-24 bg-gray-950">
-        <div class="container mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-shrink-0 fade-in">
-                <!-- Sua foto! -->
-                <img src="https://i.ibb.co/0ymRCF5C/2-DACB7-CC-CE28-4383-BD50-DEB2-C7-A38721.png" alt="Foto da Autora"
-                    class="w-60 h-60 rounded-full object-cover border-4 border-gray-800 shadow-xl">
-            </div>
-            <div class="fade-in" style="transition-delay: 200ms;">
-                <h2 class="text-4xl font-bold text-white mb-4">Sobre <span class="accent-color">Leonardo Machado</span></h2>
-                <p class="text-lg text-neutral-300 leading-relaxed mb-4">
-                    Leonardo é uma nova e ousada voz na fantasia sombria nacional. Fascinado(a) pelas eras mais brutais da história e pelas perguntas que a fé não consegue responder, Leonardo escreve as histórias encontradas nas sombras.
-                </p>
-                <p class="text-lg text-neutral-300 leading-relaxed">
-                    O Evangelho da Cinza é o seu muito aguardado romance de estreia.
-                </p>
-                <!-- Links de Redes Sociais (opcional) -->
-                <div class="mt-6 flex space-x-4">
-                    <a href="https://www.instagram.com/leo_machado_27/" class="text-neutral-400 hover:accent-color transition-colors duration-300">Instagram</a>
+            <div class="mb-20">
+                <h3 class="text-2xl font-serif text-indigo-300 border-l-4 border-indigo-600 pl-4 mb-8">Leitores do Cotidiano</h3>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
                     
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Juliana M.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Professora</p>
+                        <p class="text-slate-400 text-sm italic">"Comprei achando que era terror, mas é um abraço. A parte sobre 'despir a luz' me fez chorar. Estava precisando ouvir que não preciso ser forte o tempo todo."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Carlos Eduardo</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Contador</p>
+                        <p class="text-slate-400 text-sm italic">"O capítulo sobre Nemesis me pegou de jeito. A gente vive correndo atrás do sucesso e esquece do equilíbrio. Livro denso, mas necessário."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Dona Lourdes</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Aposentada</p>
+                        <p class="text-slate-400 text-sm italic">"Meu neto me deu de presente. Achei o texto lindo, principalmente quando fala das Hespérides e do envelhecer como algo bonito, o 'pôr do sol' da vida."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Felipe S.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Motorista de App</p>
+                        <p class="text-slate-400 text-sm italic">"Leio nos intervalos. A ideia de que a gente é só uma função social de dia e recupera a alma de noite... cara, isso descreve minha vida."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Amanda R.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Mãe de 2 filhos</p>
+                        <p class="text-slate-400 text-sm italic">"Ensinei meus filhos a não terem medo do escuro usando as histórias desse livro. Nyx virou a 'mãe coruja' aqui em casa."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Roberto K.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Gerente Comercial</p>
+                        <p class="text-slate-400 text-sm italic">"Eu vivia estressado, burnout total. O conceito de 'desistência estratégica' salvou minha sanidade. Não é sobre perder, é sobre escolher onde lutar."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Larissa T.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Estudante de Direito</p>
+                        <p class="text-slate-400 text-sm italic">"Leitura difícil no começo, mas depois flui. É um tapa na cara da nossa geração que quer postar tudo no Instagram."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Bruno V.</p>
+                            <div class="text-yellow-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Vendedor</p>
+                        <p class="text-slate-400 text-sm italic">"Comprei pela capa, fiquei pelo conteúdo. O 'Ritual de Thanatos' para desapegar das coisas materiais é muito forte."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <h3 class="text-2xl font-serif text-teal-300 border-l-4 border-teal-600 pl-4 mb-8">Saúde Mental e Bem-estar</h3>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Dr. Paulo Mendes</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Psicólogo Clínico</p>
+                        <p class="text-slate-400 text-sm italic">"Tenho recomendado aos pacientes com ansiedade severa. A validação do silêncio e da pausa como necessidades biológicas e não 'preguiça' é fundamental."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Sandra B.</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Terapeuta Holística</p>
+                        <p class="text-slate-400 text-sm italic">"O 'Banho de Escuridão' descrito no capítulo de rituais é uma técnica de limpeza energética poderosíssima. Meus clientes adoram."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Ricardo L.</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Enfermeiro (Turno da Noite)</p>
+                        <p class="text-slate-400 text-sm italic">"Trabalho de madrugada e sempre me senti 'fora do mundo'. Esse livro me fez sentir parte de algo maior. A noite é meu lar agora."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Dra. Elisa</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Psiquiatra</p>
+                        <p class="text-slate-400 text-sm italic">"Interessante a perspectiva de tratar a insônia não apenas com remédios, mas com uma mudança de filosofia de vida. Uma abordagem junguiana muito rica."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Mariana C.</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Instrutora de Yoga</p>
+                        <p class="text-slate-400 text-sm italic">"A postura de 'Savasana' (Cadáver) explicada como um encontro com Thanatos deu um novo significado às minhas aulas. Profundo."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Pedro G.</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Coach de Carreira</p>
+                        <p class="text-slate-400 text-sm italic">"Vai contra tudo o que eu ensino sobre produtividade, e por isso mesmo adorei. Me fez questionar meus próprios métodos."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Clara F.</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Doula</p>
+                        <p class="text-slate-400 text-sm italic">"A analogia do 'Útero Cósmico' é perfeita. A vida realmente começa no escuro. Vou usar essas passagens com as gestantes."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Dr. Roberto</p>
+                            <div class="text-teal-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Médico do Sono</p>
+                        <p class="text-slate-400 text-sm italic">"Uma visão poética sobre a fisiologia do descanso. O autor entende a necessidade do 'shut down' do sistema nervoso."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <h3 class="text-2xl font-serif text-purple-300 border-l-4 border-purple-600 pl-4 mb-8">Insones e "Filhos da Noite"</h3>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Sérgio A.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Sofre de Insônia há 15 anos</p>
+                        <p class="text-slate-400 text-sm italic">"Parei de lutar contra a cama. Agora eu 'me entrego a Hypnos'. Parece bobagem, mas mudar a mentalidade me fez dormir melhor."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Beatriz L.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Ansiosa</p>
+                        <p class="text-slate-400 text-sm italic">"A frase 'A Noite não promete amanhã, ela oferece o Agora' virou meu mantra. Leio toda vez que o peito aperta."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Lucas M.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Programador (Madrugadas)</p>
+                        <p class="text-slate-400 text-sm italic">"Sempre me senti culpado por trocar o dia pela noite. Esse livro validou minha existência. Sou um 'Insones Desperto' com orgulho."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Patrícia C.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Em luto</p>
+                        <p class="text-slate-400 text-sm italic">"Perdi meu pai recentemente. A visão de Thanatos como um 'beijo que cura a vida' trouxe um conforto que a religião não conseguiu me dar."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Gabriel O.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Universitário</p>
+                        <p class="text-slate-400 text-sm italic">"Estava prestes a ter um colapso por causa do TCC. O livro me ensinou a aceitar que não preciso ser produtivo 24h. Salvou meu semestre."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Vânia L.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Aposentada</p>
+                        <p class="text-slate-400 text-sm italic">"Leitura calma, profunda. Me sinto acompanhada nas minhas noites em claro. Nyx é uma boa companheira."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Renan J.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Designer Gráfico</p>
+                        <p class="text-slate-400 text-sm italic">"Minhas melhores ideias vêm de madrugada. O livro explica porquê: o 'Manto Estelado' apaga as distrações. Recomendo para todo criativo."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Kátia M.</p>
+                            <div class="text-purple-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Professora de Yoga</p>
+                        <p class="text-slate-400 text-sm italic">"A parte sobre o Silêncio como 'idioma dos deuses' é muito verdadeira. Pratico o silêncio agora de uma forma muito mais sagrada."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <h3 class="text-2xl font-serif text-amber-300 border-l-4 border-amber-600 pl-4 mb-8">Estudiosos do Oculto e Filosofia</h3>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Marcelo D.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Estudante de Filosofia</p>
+                        <p class="text-slate-400 text-sm italic">"Lembra os pré-socráticos e o caos primordial. Uma leitura ontológica fascinante sobre o 'não-ser' e a escuridão."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Lívia G.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Taróloga</p>
+                        <p class="text-slate-400 text-sm italic">"As correspondências mitológicas estão impecáveis. Nyx como a avó de todos os deuses coloca tudo em perspectiva. Adorei."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Tiago B.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Pesquisador de Mitos</p>
+                        <p class="text-slate-400 text-sm italic">"Fiquei surpreso com a profundidade. Não é um livro raso de 'magia pop'. É um estudo sério sobre a teogonia da noite."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Alice P.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Pagã</p>
+                        <p class="text-slate-400 text-sm italic">"A liturgia e os ritos propostos no final do livro são muito práticos. O 'Journaling de Sombras' já estou fazendo."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Fernando H.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Maçom</p>
+                        <p class="text-slate-400 text-sm italic">"Há muita sabedoria oculta nessas páginas. O conceito de 'Câmara de Reflexão' está presente em cada linha."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Sônia R.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Astróloga</p>
+                        <p class="text-slate-400 text-sm italic">"Um livro regido por Plutão e Saturno. Denso, transformador, necessário. Fala do que fica escondido no Mapa Astral."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Igor M.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Teosofista</p>
+                        <p class="text-slate-400 text-sm italic">"A luz como 'ferida no tecido da noite' é uma ideia gnóstica muito bem colocada. Leitura avançada e acessível ao mesmo tempo."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Cecília T.</p>
+                            <div class="text-amber-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Estudiosa de Jung</p>
+                        <p class="text-slate-400 text-sm italic">"O livro inteiro é um convite para integrar a Sombra. Fundamental para quem busca individuação real."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <h3 class="text-2xl font-serif text-red-300 border-l-4 border-red-600 pl-4 mb-8">Céticos que se Renderam</h3>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Arthur V.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Engenheiro</p>
+                        <p class="text-slate-400 text-sm italic">"Não gosto de esoterismo, mas a lógica desse livro é impecável. A crítica à sociedade da produtividade é muito racional."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Raquel S.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Bióloga</p>
+                        <p class="text-slate-400 text-sm italic">"A parte biológica sobre o feto no útero e a semente na terra me convenceu. A escuridão é realmente vida. Mudei de ideia."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Eduardo F.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Advogado</p>
+                        <p class="text-slate-400 text-sm italic">"Esperava algo 'dark' adolescente, encontrei filosofia estóica e madura. Me ajudou a lidar com o caos do trabalho."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Mônica J.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Jornalista</p>
+                        <p class="text-slate-400 text-sm italic">"Um manifesto necessário. Mesmo sendo cética, a prosa poética me envolveu. É um livro para desacelerar."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Paulo B.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Professor de Física</p>
+                        <p class="text-slate-400 text-sm italic">"A analogia da luz como radiação e da noite como o vácuo primordial faz todo sentido físico. Gostei da precisão das metáforas."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Helena G.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Ateia</p>
+                        <p class="text-slate-400 text-sm italic">"Não creio em deuses, mas creio na psicologia. E os arquétipos descritos aqui são ferramentas reais para a mente. Muito bom."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Vinícius D.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Empresário</p>
+                        <p class="text-slate-400 text-sm italic">"Achei que seria bobagem mística, mas é pura gestão de ego. Me ajudou a ser um líder menos arrogante."</p>
+                    </div>
+
+                    <div class="border-b border-slate-800 pb-4">
+                        <div class="flex justify-between items-start">
+                            <p class="font-bold text-slate-200">Daniela F.</p>
+                            <div class="text-red-500 flex text-xs"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2">Crítica Literária</p>
+                        <p class="text-slate-400 text-sm italic">"Uma surpresa. A escrita é madura e o tema é tratado sem sensacionalismo. Uma defesa elegante da introspecção."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="comprar" class="py-24 bg-slate-950">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-indigo-400">Junte-se à Família dos Insones Despertos</h2>
+                <p class="text-xl text-slate-300 mt-2">Escolha sua porta de entrada para o Abismo.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                
+                <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col items-center hover:border-indigo-500 transition duration-500 transform hover:-translate-y-2 group">
+                    <i data-lucide="smartphone" class="h-10 w-10 text-indigo-400 mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="font-bold text-white text-2xl">eBook Kindle</h3>
+                    <p class="text-slate-500 text-sm mt-2">Entrega Imediata</p>
+                    
+                    <div class="my-8">
+                        <span class="text-slate-600 line-through text-lg">R$ 39,90</span>
+                        <p class="text-5xl font-serif font-extrabold text-indigo-400 mt-1">R$ 24,90</p>
+                    </div>
+
+                    <a href="#" class="w-full px-8 py-4 bg-slate-800 hover:bg-indigo-600 text-white font-bold rounded-lg transition flex items-center justify-center gap-2">
+                        <i data-lucide="download" class="h-5 w-5"></i>
+                        Baixar Agora
+                    </a>
+                </div>
+
+                <div class="p-8 bg-gradient-to-b from-indigo-900/20 to-slate-900 border-2 border-indigo-600 rounded-2xl shadow-2xl flex flex-col items-center transform md:-translate-y-6 relative group">
+                    <div class="absolute -top-4 bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">Mais Vendido</div>
+                    <i data-lucide="book" class="h-10 w-10 text-white mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="font-bold text-white text-2xl">Livro Físico (Luxo)</h3>
+                    <p class="text-slate-400 text-sm mt-2">Capa Aveludada + Marca Páginas</p>
+                    
+                    <div class="my-8">
+                        <span class="text-slate-600 line-through text-lg">R$ 89,90</span>
+                        <p class="text-5xl font-serif font-extrabold text-white mt-1">R$ 59,90</p>
+                    </div>
+
+                    <div class="w-full space-y-4">
+                        <p class="text-center text-green-400 text-xs font-bold flex items-center justify-center gap-1">
+                            <i data-lucide="truck" class="w-3 h-3"></i> Frete Grátis Prime
+                        </p>
+                        <a href="#" class="w-full px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition flex items-center justify-center gap-2 shadow-lg hover:shadow-indigo-500/50">
+                            <i data-lucide="shopping-bag" class="h-5 w-5"></i>
+                            Comprar Edição Limitada
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== Seção Final de CTA (Call to Action) ===== -->
-    <section id="comprar" class="py-32 bg-black hero-bg" style="background-position: bottom center;">
-        <div class="container mx-auto max-w-3xl px-6 text-center">
-            <div class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">A escuridão espera por você.</h2>
-                <p class="text-xl text-neutral-300 mb-10">
-                    Não perca este épico de fantasia sombria que está redefinindo o gênero. Garanta seu exemplar e escolha o seu lado na guerra entre a ordem e as cinzas.
+    <section id="autor" class="py-24 bg-slate-900 border-y border-slate-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 max-w-5xl">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-indigo-900/50 shadow-2xl shrink-0">
+                <img src="https://i.ibb.co/0ymRCF5C/2-DACB7-CC-CE28-4383-BD50-DEB2-C7-A38721.png" alt="Leonardo Machado" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <div class="space-y-6 text-center md:text-left">
+                <h2 class="text-3xl font-serif text-white">Sobre o Autor</h2>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Leonardo Machado não escreve manuais de autoajuda. Ele escreve liturgias poéticas. Sacerdote e pesquisador, ele convida o leitor a despir a armadura solar e reencontrar a profundidade que só a sombra oferece.
                 </p>
-                <a href="#comprar-link-real"
-                    class="bg-accent text-white text-2xl font-bold py-5 px-14 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover-bg-accent">
-                    COMPRAR AGORA
-                </a>
-                <p class="text-neutral-400 text-sm mt-4">(Disponível em formato Físico e E-book)</p>
+                <div class="inline-block p-4 bg-slate-950 rounded-lg border-l-4 border-indigo-500 italic text-indigo-200">
+                    "A esperança é uma ansiedade pelo futuro. A Noite oferece a eternidade do Agora."
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== Footer ===== -->
-    <footer class="py-12 bg-black border-t border-gray-900">
-        <div class="container mx-auto max-w-6xl px-6 text-center text-neutral-500">
-            <p>&copy; 2025 Leonardo Machado. Todos os direitos reservados.</p>
-            <p class="text-sm mt-2">Uma landing page feita com <span class="accent-color">&lt;3</span> por Elara.</p>
+    <footer class="bg-black py-12 text-center border-t border-slate-900">
+        <div class="flex justify-center items-center gap-2 mb-6 opacity-70">
+            <i data-lucide="moon" class="w-5 h-5 text-indigo-600"></i>
+            <span class="font-serif tracking-widest text-indigo-300">NYX PRIMORDIAL</span>
+        </div>
+        <p class="text-slate-600 text-sm">© 2025 Leonardo Machado. Todos os direitos reservados.</p>
+        <div class="flex justify-center gap-6 mt-6">
+            <a href="#" class="text-slate-700 hover:text-indigo-400 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="#" class="text-slate-700 hover:text-indigo-400 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            <a href="#" class="text-slate-700 hover:text-indigo-400 transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
         </div>
     </footer>
 
-    <!-- Botão de Voltar ao Topo -->
-    <button id="to-top-button"
-        class="fixed bottom-6 right-6 bg-accent text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover-bg-accent"
-        title="Voltar ao topo">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
-    </button>
-
-    <!-- Script para Animações e Botão "Topo" -->
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            
-            // Lógica da Animação de Fade-in
-            const fadeInElements = document.querySelectorAll('.fade-in');
+        lucide.createIcons();
+        
+        // Stars Logic
+        const starsContainer = document.getElementById('stars-container');
+        if (starsContainer) {
+            for (let i = 0; i < 80; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 2 + 'px';
+                const top = Math.random() * 100 + '%';
+                const left = Math.random() * 100 + '%';
+                const duration = Math.random() * 3 + 2 + 's';
+    
+                star.style.position = 'absolute';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.background = 'white';
+                star.style.top = top;
+                star.style.left = left;
+                star.style.borderRadius = '50%';
+                star.style.opacity = Math.random() * 0.7;
+                star.style.animation = `pulse ${duration} infinite`;
+                
+                // Inline Keyframes for Pulse
+                star.style.animationName = 'pulse';
+    
+                starsContainer.appendChild(star);
+            }
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // Opcional: parar de observar depois que for visível
-                        // observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1 // Ativa quando 10% do elemento está visível
-            });
-
-            fadeInElements.forEach(el => {
-                observer.observe(el);
-            });
-
-            // Lógica do Botão "Voltar ao Topo"
-            const toTopButton = document.getElementById('to-top-button');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    toTopButton.classList.remove('opacity-0');
-                } else {
-                    toTopButton.classList.add('opacity-0');
-                }
-            });
-
-            toTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-        });
+        // Add keyframes dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes pulse {
+                0% { opacity: 0.2; }
+                50% { opacity: 0.8; }
+                100% { opacity: 0.2; }
+            }
+        `;
+        document.head.appendChild(styleSheet);
     </script>
 </body>
-
 </html>
-
